@@ -248,7 +248,7 @@ const HomePage = () => {
                 <span className="relative flex items-center gap-2">ENQUIRE NOW <ArrowRight className="w-5 h-5" /></span>
               </button>
               <button onClick={() => navigate('/work')} className="px-8 py-4 border border-zinc-800 hover:border-[#D4AF37] text-zinc-400 hover:text-white transition-colors font-mono text-sm">
-                // VIEW_WORK
+                 VIEW WORK
               </button>
             </div>
           </div>
