@@ -510,14 +510,6 @@ const AboutPage = () => (
 
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-zinc-800 pt-16">
       <div>
-         <div className="text-4xl font-bold text-white mb-2">20+</div>
-         <div className="text-sm text-zinc-500 font-mono">ENTERPRISE CLIENTS</div>
-      </div>
-      <div>
-         <div className="text-4xl font-bold text-white mb-2">50k+</div>
-         <div className="text-sm text-zinc-500 font-mono">HOURS SAVED</div>
-      </div>
-      <div>
          <div className="text-4xl font-bold text-white mb-2">100%</div>
          <div className="text-sm text-zinc-500 font-mono">ON-TIME DELIVERY</div>
       </div>
