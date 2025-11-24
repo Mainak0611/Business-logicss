@@ -263,7 +263,7 @@ const HomePage = () => {
                                 <span className="text-zinc-500 text-xs font-mono">TOTAL REVENUE</span>
                                 <TrendingUp size={14} className="text-[#D4AF37]" />
                              </div>
-                             <div className="text-2xl font-bold text-white">₹ 12,45,000</div>
+                             <div className="text-2xl font-bold text-white">₹ XXXXX</div>
                              <div className="text-emerald-500 text-xs mt-1">+18% this month</div>
                           </div>
                           <div className="flex-1 bg-[#111] border border-zinc-800 rounded-lg p-4">
