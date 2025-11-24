@@ -194,7 +194,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 </div>
                 <div className="flex gap-6 text-sm text-zinc-500 font-mono">
                   <a href="https://www.linkedin.com/company/businesslogicss" target="_blank" rel="noreferrer" className="hover:text-[#D4AF37] transition-colors uppercase">LinkedIn</a>
-                  <a href="mailto:businesslogics.solutions@gmail.com" className="hover:text-[#D4AF37] transition-colors uppercase">Mail</a>
                 </div>
                 <div className="text-zinc-600 text-xs">© {new Date().getFullYear()} BUSINESSLOGICS.</div>
               </div>
