@@ -14,7 +14,6 @@ import {
   Server,
   ChevronLeft,
   ChevronRight,
-  Activity,
   TrendingUp,
   ShieldCheck
 } from 'lucide-react';
@@ -68,7 +67,6 @@ const BentoCard = ({ icon, title, desc, onClick, className }: any) => (
 // --- LAYOUT COMPONENT (Header + Footer) ---
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
   
   // Form State for Footer
   const [email, setEmail] = useState('');
