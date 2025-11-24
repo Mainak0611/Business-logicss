@@ -170,7 +170,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     <img src={logo} className="h-8 grayscale hover:grayscale-0 transition-all" alt="logo" />
                 </div>
                 <div className="flex gap-6 text-sm text-zinc-500 font-mono">
-                  <a href="#" className="hover:text-[#D4AF37] transition-colors uppercase">LinkedIn</a>
+                  {/* UPDATED LINKEDIN URL HERE */}
+                  <a href="https://www.linkedin.com/company/businesslogicss" target="_blank" rel="noreferrer" className="hover:text-[#D4AF37] transition-colors uppercase">LinkedIn</a>
+                  
                   <a href="mailto:businesslogics.solutions@gmail.com" className="hover:text-[#D4AF37] transition-colors uppercase">Mail</a>
                 </div>
                 <div className="text-zinc-600 text-xs">© {new Date().getFullYear()} BUSINESSLOGICS.</div>
@@ -476,7 +478,7 @@ const AboutPage = () => (
         We are a boutique software agency obsessed with <span className="text-[#D4AF37]">efficiency</span>.
       </p>
       <p className="mb-6">
-        Founded in 2023, BusinessLogics was born out of frustration. We saw businesses struggling with bloated, expensive "one-size-fits-all" software that did 100 things poorly and nothing perfectly.
+        Founded in 2025, BusinessLogics was born out of frustration. We saw businesses struggling with bloated, expensive "one-size-fits-all" software that did 100 things poorly and nothing perfectly.
       </p>
       <p className="mb-6">
         We took a different approach. We believe software should be like a tailored suit—cut exactly to your measurements. We don't use templates. We don't outsource. We write clean, performant code that solves specific business problems.
@@ -487,14 +489,7 @@ const AboutPage = () => (
     </div>
 
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-zinc-800 pt-16">
-      <div>
-         <div className="text-4xl font-bold text-white mb-2">20+</div>
-         <div className="text-sm text-zinc-500 font-mono">ENTERPRISE CLIENTS</div>
-      </div>
-      <div>
-         <div className="text-4xl font-bold text-white mb-2">50k+</div>
-         <div className="text-sm text-zinc-500 font-mono">HOURS SAVED</div>
-      </div>
+      
       <div>
          <div className="text-4xl font-bold text-white mb-2">100%</div>
          <div className="text-sm text-zinc-500 font-mono">ON-TIME DELIVERY</div>
