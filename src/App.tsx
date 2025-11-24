@@ -64,7 +64,7 @@ const BentoCard = ({ icon, title, desc, onClick, className }: any) => (
   </div>
 );
 
-// --- LAYOUT COMPONENT (Header + Footer) ---
+// --- LAYOUT COMPONENT (Header + Footer + Form Logic) ---
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -72,15 +72,38 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const [email, setEmail] = useState('');
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  // --- UPDATED FORM LOGIC ---
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-      setEmail('');
-      setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+
+    try {
+      // ---------------------------------------------------------
+      // ⚠️ REPLACE 'YOUR_FORMSPREE_ID' WITH YOUR ACTUAL ID ⚠️
+      // Example: https://formspree.io/f/xkqezowq
+      // ---------------------------------------------------------
+      const response = await fetch("https://formspree.io/f/mwpjkrla", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setEmail('');
+        // Reset button after 3 seconds
+        setTimeout(() => setFormStatus('idle'), 3000);
+      } else {
+        alert("There was a problem submitting the form. Please try again.");
+        setFormStatus('idle');
+      }
+    } catch (error) {
+      alert("Network error. Please check your connection.");
+      setFormStatus('idle');
+    }
   };
 
   return (
@@ -156,7 +179,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <form className="relative z-10 max-w-md mx-auto space-y-4" onSubmit={handleFormSubmit}>
                  <div className="relative group">
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-[#D4AF37] to-zinc-800 rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-200"></div>
-                    <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address" disabled={formStatus === 'success'} className="relative w-full bg-black text-white p-4 rounded-lg border border-zinc-800 focus:outline-none focus:border-[#D4AF37] transition-colors disabled:opacity-50" />
+                    <input type="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address" disabled={formStatus === 'success'} className="relative w-full bg-black text-white p-4 rounded-lg border border-zinc-800 focus:outline-none focus:border-[#D4AF37] transition-colors disabled:opacity-50" />
                  </div>
                  <button type="submit" disabled={formStatus !== 'idle'} className={`w-full py-4 font-bold rounded-lg transition-all flex items-center justify-center gap-2 ${formStatus === 'success' ? 'bg-emerald-500 text-black' : 'bg-white text-black hover:bg-[#D4AF37]'}`}>
                     {formStatus === 'idle' && <>BOOK DISCOVERY CALL <ArrowRight size={18} /></>}
@@ -170,9 +193,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     <img src={logo} className="h-8 grayscale hover:grayscale-0 transition-all" alt="logo" />
                 </div>
                 <div className="flex gap-6 text-sm text-zinc-500 font-mono">
-                  {/* UPDATED LINKEDIN URL HERE */}
                   <a href="https://www.linkedin.com/company/businesslogicss" target="_blank" rel="noreferrer" className="hover:text-[#D4AF37] transition-colors uppercase">LinkedIn</a>
-                  
                   <a href="mailto:businesslogics.solutions@gmail.com" className="hover:text-[#D4AF37] transition-colors uppercase">Mail</a>
                 </div>
                 <div className="text-zinc-600 text-xs">© {new Date().getFullYear()} BUSINESSLOGICS.</div>
@@ -489,7 +510,14 @@ const AboutPage = () => (
     </div>
 
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-zinc-800 pt-16">
-      
+      <div>
+         <div className="text-4xl font-bold text-white mb-2">20+</div>
+         <div className="text-sm text-zinc-500 font-mono">ENTERPRISE CLIENTS</div>
+      </div>
+      <div>
+         <div className="text-4xl font-bold text-white mb-2">50k+</div>
+         <div className="text-sm text-zinc-500 font-mono">HOURS SAVED</div>
+      </div>
       <div>
          <div className="text-4xl font-bold text-white mb-2">100%</div>
          <div className="text-sm text-zinc-500 font-mono">ON-TIME DELIVERY</div>
