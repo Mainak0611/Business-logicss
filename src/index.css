@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    /* Dynamic Resolution Scaling:
+     By setting the root font-size dynamically based on vw, 1rem scales proportionally.
+     Since Tailwind uses rem for almost everything (padding, margin, fonts, width),
+     the entire UI seamlessly zooms and "resizes itself" according to the device width.
+  */
+    html {
+        font-size: 16px;
+    }
+
+    /* Mobile Devices (Base width ~400px -> 1rem = 16px) */
+    @media (max-width: 767px) {
+        html {
+            font-size: calc(100vw / 25);
+        }
+    }
+
+    /* Tablet Devices (Base width ~800px -> 1rem = 16px) */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        html {
+            font-size: calc(100vw / 50);
+        }
+    }
+
+    /* Laptops / Standard Desktops (Base width ~1440px -> 1rem = 16px) */
+    @media (min-width: 1024px) and (max-width: 1535px) {
+        html {
+            font-size: calc(100vw / 90);
+        }
+    }
+
+    /* Ultrawide / Large Screens (Base width ~1920px -> 1rem = 16px) */
+    @media (min-width: 1536px) {
+        html {
+            font-size: calc(100vw / 120);
+        }
+    }
+}
