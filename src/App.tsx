@@ -395,6 +395,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 // --- HOMEPAGE ---
 const HomePage = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -405,25 +406,58 @@ const HomePage = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const scrollToContact = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
   // Parallax Logic
   const { scrollY } = useScroll();
   const smoothScrollY = useSpring(scrollY, { mass: 0.1, stiffness: 100, damping: 20 });
 
-  // Parallax Transforms
-  const yBgText = useTransform(smoothScrollY, [0, 1000], [0, 400]);
-  const yHeroContent = useTransform(smoothScrollY, [0, 1000], [0, 150]);
-  const opacityHero = useTransform(smoothScrollY, [0, 500], [1, 0]);
+  // Parallax Transforms - Disabled on mobile for smooth scrolling
+  const yBgText = isMobile 
+    ? { get current() { return 0; } } as any
+    : useTransform(smoothScrollY, [0, 1000], [0, 400]);
+  
+  const yHeroContent = isMobile 
+    ? { get current() { return 0; } } as any
+    : useTransform(smoothScrollY, [0, 1000], [0, 150]);
+  
+  const opacityHero = isMobile 
+    ? { get current() { return 1; } } as any
+    : useTransform(smoothScrollY, [0, 500], [1, 0]);
 
-  const mockupY = useTransform(smoothScrollY, [0, 1000], [0, -300]);
-  const mockupRotateX = useTransform(smoothScrollY, [0, 1000], [10, 30]);
-  const mockupRotateY = useTransform(smoothScrollY, [0, 1000], [-12, -25]);
-  const mockupScale = useTransform(smoothScrollY, [0, 800], [1, 1.1]);
+  const mockupY = isMobile 
+    ? { get current() { return 0; } } as any
+    : useTransform(smoothScrollY, [0, 1000], [0, -300]);
+  
+  const mockupRotateX = isMobile 
+    ? { get current() { return 10; } } as any
+    : useTransform(smoothScrollY, [0, 1000], [10, 30]);
+  
+  const mockupRotateY = isMobile 
+    ? { get current() { return -12; } } as any
+    : useTransform(smoothScrollY, [0, 1000], [-12, -25]);
+  
+  const mockupScale = isMobile 
+    ? { get current() { return 1; } } as any
+    : useTransform(smoothScrollY, [0, 800], [1, 1.1]);
 
-  const yMarquee = useTransform(smoothScrollY, [0, 1500], [0, -100]);
-  const yWhyUs = useTransform(smoothScrollY, [500, 1500], [150, -50]);
-  const yBento = useTransform(smoothScrollY, [1000, 2500], [200, 0]);
+  const yMarquee = isMobile 
+    ? { get current() { return 0; } } as any
+    : useTransform(smoothScrollY, [0, 1500], [0, -100]);
+  
+  const yWhyUs = isMobile 
+    ? { get current() { return 150; } } as any
+    : useTransform(smoothScrollY, [500, 1500], [150, -50]);
+  
+  const yBento = isMobile 
+    ? { get current() { return 200; } } as any
+    : useTransform(smoothScrollY, [1000, 2500], [200, 0]);
 
   return (
     <>
@@ -493,7 +527,8 @@ const HomePage = () => {
                 rotateX: mockupRotateX,
                 rotateY: mockupRotateY,
                 y: mockupY,
-                scale: mockupScale
+                scale: mockupScale,
+                willChange: isMobile ? 'auto' : 'transform'
               }}
               className="relative transition-shadow duration-1000 ease-out preserve-3d"
             >
