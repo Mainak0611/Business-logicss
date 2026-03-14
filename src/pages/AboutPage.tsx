@@ -8,7 +8,7 @@ export default function AboutPage() {
     document.title = 'About Us | BusinessLogics';
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute('content', 'BusinessLogics is a boutique software agency founded in 2025 that builds custom, bespoke digital systems for businesses across India. Zero templates. Full ownership.');
+      meta.setAttribute('content', 'BusinessLogics is a boutique software agency founded in 2026 that builds custom, bespoke digital systems for businesses across India. Zero templates. Full ownership.');
     }
   }, []);
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
     { value: '100%', label: 'ON-TIME DELIVERY' },
     { value: '50+', label: 'MODULES BUILT' },
     { value: '0', label: 'TEMPLATES USED' },
-    { value: '2025', label: 'FOUNDED' },
+    { value: '2026', label: 'FOUNDED' },
   ];
 
   const values = [
@@ -105,7 +105,7 @@ export default function AboutPage() {
           transition={{ duration: 1, delay: 0.1, ease: 'easeOut' }}
           className="mb-6"
         >
-          Founded in 2025, BusinessLogics was born out of frustration. We saw businesses struggling with bloated, expensive "one-size-fits-all" software that did 100 things poorly and nothing perfectly.
+          Founded in 2026, BusinessLogics was born out of frustration. We saw businesses struggling with bloated, expensive "one-size-fits-all" software that did 100 things poorly and nothing perfectly.
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-50px' }}
