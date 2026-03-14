@@ -481,7 +481,7 @@ const HomePage = () => {
           </motion.div>
 
           {/* RIGHT: 3D Mockup */}
-          <div className="relative hidden lg:block perspective-[2000px]">
+          <div className="relative perspective-[2000px]">
             {/* Glow ring behind mockup */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-[350px] h-[350px] rounded-full border border-[#D4AF37]/10 animate-[spinSlow_25s_linear_infinite]" />
