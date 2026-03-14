@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import CustomBusinessSoftwarePage from './pages/CustomBusinessSoftwarePage';
+import WorkflowAutomationPage from './pages/WorkflowAutomationPage';
+import ERPSoftwarePage from './pages/ERPSoftwarePage';
+import InventoryManagementPage from './pages/InventoryManagementPage';
+import BusinessProcessAutomationPage from './pages/BusinessProcessAutomationPage';
+import ServicesPage from './pages/ServicesPage';
+import WorkPage from './pages/WorkPage';
+import AboutPage from './pages/AboutPage';
+import SEOPage from './pages/SEOPage';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   LayoutDashboard,
@@ -10,22 +19,11 @@ import {
   X,
   ArrowRight,
   CheckCircle2,
-  Zap,
   Loader2,
-  Server,
-  ChevronLeft,
-  ChevronRight,
   TrendingUp,
   ShieldCheck
 } from 'lucide-react';
 import logo from './assets/logo.png';
-import img1 from './assets/1.png';
-import img2 from './assets/2.png';
-import img3 from './assets/3.png';
-import img4 from './assets/4.png';
-import img5 from './assets/5.png';
-import img6 from './assets/6.png';
-import img7 from './assets/7.png';
 
 // --- UTILITIES & SHARED COMPONENTS ---
 
@@ -312,6 +310,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {['Services', 'Work', 'About'].map((item) => (
               <Link key={item} to={`/${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)} className="text-2xl text-white font-bold hover:text-[#D4AF37]">{item}</Link>
             ))}
+            <button
+              onClick={() => { setIsMobileMenuOpen(false); setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 100); }}
+              className="mt-4 px-8 py-3 bg-[#D4AF37] text-black font-bold rounded-full text-sm"
+            >
+              Start Project
+            </button>
           </div>
         )}
       </header>
@@ -441,19 +445,19 @@ const HomePage = () => {
                 </span>
                 SYSTEMS ARCHITECTURE V2.0
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter text-white mb-8">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter text-white mb-8">
                 LOGIC <br /> MEETS <br />
                 <span className="gold-shimmer italic font-serif pr-4">Luxury.</span>
               </h1>
               <p className="text-lg text-zinc-400 leading-relaxed max-w-md mb-10 border-l-2 border-[#D4AF37]/30 pl-6">
                 We don't just build software. We engineer digital empires. Bespoke dashboards and CRM solutions.
               </p>
-              <div className="flex flex-wrap gap-5 mb-12">
-                <button onClick={scrollToContact} className="group relative px-8 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-none overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5 mb-12">
+                <button onClick={scrollToContact} className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-[#D4AF37] text-black font-bold text-base sm:text-lg rounded-none overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]">
                   <div className="absolute inset-0 w-full h-full bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  <span className="relative flex items-center gap-2">ENQUIRE NOW <ArrowRight className="w-5 h-5" /></span>
+                  <span className="relative flex items-center justify-center gap-2">ENQUIRE NOW <ArrowRight className="w-5 h-5" /></span>
                 </button>
-                <button onClick={() => navigate('/work')} className="px-8 py-4 border border-zinc-800 hover:border-[#D4AF37] text-zinc-400 hover:text-white transition-colors font-mono text-sm">
+                <button onClick={() => navigate('/work')} className="px-6 py-3 sm:px-8 sm:py-4 border border-zinc-800 hover:border-[#D4AF37] text-zinc-400 hover:text-white transition-colors font-mono text-sm">
                   VIEW WORK
                 </button>
               </div>
@@ -678,195 +682,57 @@ const HomePage = () => {
           </div>
         </div>
       </section >
+
+      {/* OUR SOLUTIONS — Internal linking section */}
+      <section className="py-24 px-6 bg-[#080808] border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-[#D4AF37] font-mono text-sm mb-4">/// OUR SOLUTIONS</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white">Built for Every <span className="italic font-serif text-zinc-400">business need.</span></h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { title: 'Custom Business Software', desc: 'Bespoke software engineered around your exact workflows and business logic.', path: '/custom-business-software', tag: 'Custom Dev' },
+              { title: 'Workflow Automation', desc: 'Automate multi-step business processes with smart triggers, bots, and integrations.', path: '/workflow-automation-software', tag: 'Automation' },
+              { title: 'ERP Software', desc: 'Unify finance, HR, inventory, and operations in one custom ERP platform.', path: '/erp-software', tag: 'ERP' },
+              { title: 'Inventory Management', desc: 'Real-time stock tracking, barcode scanning, and automated reorder across warehouses.', path: '/inventory-management-software', tag: 'Inventory' },
+              { title: 'Business Process Automation', desc: 'Transform manual, error-prone operations into intelligent self-running systems.', path: '/business-process-automation', tag: 'BPA' },
+              { title: 'Search Engine Optimization', desc: 'Rank on page 1 of Google. Technical SEO, keyword strategy, and content optimization.', path: '/search-engine-optimization', tag: 'SEO' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Link
+                  to={item.path}
+                  className="block bg-[#0A0A0A] border border-zinc-800 hover:border-[#D4AF37]/50 rounded-2xl p-7 transition-all group relative overflow-hidden h-full"
+                >
+                  <div className="absolute right-0 top-0 w-24 h-24 bg-[#D4AF37] opacity-0 group-hover:opacity-10 blur-[40px] transition-opacity duration-500" />
+                  <span className="inline-block px-3 py-1 bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] font-mono rounded-full mb-4 tracking-widest">{item.tag}</span>
+                  <h3 className="text-white font-bold text-xl mb-3 group-hover:text-[#D4AF37] transition-colors">{item.title}</h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed mb-5">{item.desc}</p>
+                  <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    LEARN MORE <ArrowRight size={12} />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
 
-// --- OTHER PAGES (unchanged) ---
-
-const ServicesPage = () => {
-  const { scrollY } = useScroll();
-  const smoothScrollY = useSpring(scrollY, { mass: 0.1, stiffness: 100, damping: 20 });
-  const yBg = useTransform(smoothScrollY, [0, 1000], [0, 200]);
-
-  return (
-    <div className="max-w-7xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
-      <motion.div style={{ y: yBg }} className="absolute right-[-10%] top-0 w-[500px] h-[500px] bg-[#D4AF37]/10 blur-[150px] rounded-full point-events-none -z-10" />
-      <motion.h1
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: "easeOut" }}
-        className="text-6xl font-bold mb-4 text-white"
-      >
-        Our Services
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        className="text-xl text-zinc-400 mb-20 max-w-2xl"
-      >
-        Comprehensive modules designed to fit perfectly into your existing workflow. We don't force you to adapt to software; we build software that adapts to you.
-      </motion.p>
-      <div className="grid md:grid-cols-2 gap-8 relative z-10">
-        {[
-          { icon: <LayoutDashboard />, title: "Custom ERP Development", desc: "End-to-end resource planning tailored to your industry logic." },
-          { icon: <Users />, title: "HRMS & Payroll", desc: "Automated salary processing, attendance tracking, and performance appraisals." },
-          { icon: <ShoppingCart />, title: "Inventory Management", desc: "FIFO/LIFO tracking, warehousing logic, and stock alerts." },
-          { icon: <FileText />, title: "GST Billing", desc: "One-click e-invoice generation and seamless tax filing reports." },
-          { icon: <Server />, title: "Cloud Migration", desc: "Move your on-premise data to secure, scalable cloud infrastructure." },
-          { icon: <Zap />, title: "Automation Bots", desc: "RPA solutions to handle repetitive data entry tasks." },
-        ].map((service, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
-            className="bg-[#111] p-8 rounded-2xl border border-zinc-800 hover:border-[#D4AF37] transition-all group"
-          >
-            <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6 text-[#D4AF37] group-hover:scale-110 transition-transform">
-              {service.icon}
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-            <p className="text-zinc-400 leading-relaxed">{service.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const WorkPage = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const projectImages = [img1, img2, img3, img4, img5, img6, img7];
-
-  const { scrollY } = useScroll();
-  const smoothScrollY = useSpring(scrollY, { mass: 0.1, stiffness: 100, damping: 20 });
-  const yBg = useTransform(smoothScrollY, [0, 1000], [0, 200]);
-
-  const nextSlide = (e: any) => { e.stopPropagation(); setCurrentSlide((prev) => (prev + 1) % projectImages.length); };
-  const prevSlide = (e: any) => { e.stopPropagation(); setCurrentSlide((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1)); };
-
-  return (
-    <div className="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
-      <motion.div style={{ y: yBg }} className="absolute left-[10%] top-[20%] w-[300px] h-[300px] bg-[#D4AF37]/5 blur-[120px] rounded-full point-events-none -z-10" />
-
-      <motion.h1
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: "easeOut" }}
-        className="text-6xl font-bold mb-4 text-white hover-glow"
-      >
-        Selected Work
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
-        className="text-xl text-zinc-400 mb-20 max-w-2xl"
-      >
-        A showcase of high-performance systems we've engineered for clients.
-      </motion.p>
-      <div className="space-y-20 relative z-10">
-        <div className="group relative grid md:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="aspect-video bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 group-hover:border-[#D4AF37]/50 transition-all relative group/slider"
-          >
-            <img src={projectImages[currentSlide]} alt="Project Screenshot" className="w-full h-full object-cover transition-opacity duration-500" />
-            <div className="absolute inset-0 bg-black/10 group-hover/slider:bg-transparent transition-colors"></div>
-            <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-              <button onClick={prevSlide} className="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-[#D4AF37] hover:text-black transition-all"><ChevronLeft size={20} /></button>
-              <button onClick={nextSlide} className="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-[#D4AF37] hover:text-black transition-all"><ChevronRight size={20} /></button>
-            </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {projectImages.map((_, idx) => (<div key={idx} className={`w-2 h-2 rounded-full transition-all ${currentSlide === idx ? 'bg-[#D4AF37] w-4' : 'bg-white/50'}`} />))}
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="text-[#D4AF37] font-mono text-xs mb-4">FEATURED PROJECT</div>
-            <h3 className="text-3xl font-bold text-white mb-4">Enquiry Tracking System</h3>
-            <p className="text-zinc-400 leading-relaxed mb-6">A specialized dashboard for managing customer enquiries. Streamline lead follow-ups, track status changes from pending to conversion, and ensure no potential client falls through the cracks.</p>
-            <div className="flex gap-2 mb-8">
-              <span className="px-3 py-1 bg-zinc-900 text-zinc-500 text-xs rounded border border-zinc-800">REACT</span>
-              <span className="px-3 py-1 bg-zinc-900 text-zinc-500 text-xs rounded border border-zinc-800">NODE.JS</span>
-              <span className="px-3 py-1 bg-zinc-900 text-zinc-500 text-xs rounded border border-zinc-800">TAILWIND</span>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const AboutPage = () => {
-  const { scrollY } = useScroll();
-  const smoothScrollY = useSpring(scrollY, { mass: 0.1, stiffness: 100, damping: 20 });
-  const yTitle = useTransform(smoothScrollY, [0, 500], [0, 150]);
-  const opacityTitle = useTransform(smoothScrollY, [0, 300], [1, 0.3]);
-
-  return (
-    <div className="max-w-4xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
-      <motion.h1
-        style={{ y: yTitle, opacity: opacityTitle }}
-        className="text-6xl font-bold mb-12 text-white relative z-0"
-      >
-        About Us
-      </motion.h1>
-      <div className="prose prose-invert prose-lg text-zinc-400 relative z-10">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-2xl text-white font-light mb-8"
-        >
-          We are a boutique software agency obsessed with <span className="text-[#D4AF37]">efficiency</span>.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
-          className="mb-6"
-        >
-          Founded in 2025, BusinessLogics was born out of frustration. We saw businesses struggling with bloated, expensive "one-size-fits-all" software that did 100 things poorly and nothing perfectly.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="mb-6"
-        >
-          We took a different approach. We believe software should be like a tailored suit—cut exactly to your measurements. We don't use templates. We don't outsource. We write clean, performant code that solves specific business problems.
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-          className="mb-12"
-        >
-          Our team consists of systems architects, UI designers, and full-stack engineers who understand business logic as well as they understand binary.
-        </motion.p>
-      </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-zinc-800 pt-16 relative z-10"
-      >
-        <div>
-          <div className="text-4xl font-bold text-white mb-2">100%</div>
-          <div className="text-sm text-zinc-500 font-mono">ON-TIME DELIVERY</div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
 
 export default function App() {
   return (
@@ -878,6 +744,12 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/custom-business-software" element={<CustomBusinessSoftwarePage />} />
+          <Route path="/workflow-automation-software" element={<WorkflowAutomationPage />} />
+          <Route path="/erp-software" element={<ERPSoftwarePage />} />
+          <Route path="/inventory-management-software" element={<InventoryManagementPage />} />
+          <Route path="/business-process-automation" element={<BusinessProcessAutomationPage />} />
+          <Route path="/search-engine-optimization" element={<SEOPage />} />
         </Routes>
       </Layout>
     </Router>
