@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 export default function AboutPage() {
@@ -29,13 +31,65 @@ export default function AboutPage() {
     { num: '04', title: 'India-First Compliance', desc: 'Built-in GST, TDS, and PF compliance. We understand the regulatory landscape your business operates in.' },
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What type of companies do you typically work with?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We work with growing teams that need tailored systems, typically from SMB to mid-market scale.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you only build new products or also improve existing software?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We build net-new systems and modernize legacy platforms through phased transitions.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How involved is our internal team during development?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Your team stays involved through discovery, milestone reviews, and user acceptance checkpoints.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can your team support SEO and growth after launch?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We provide search engine optimization services to improve discoverability and lead quality after launch.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
+      <Helmet>
+        <title>About BusinessLogics | Custom Software Company in India</title>
+        <meta name="description" content="Learn about BusinessLogics, a software engineering company delivering custom business software, ERP software, workflow automation software, and search engine optimization services." />
+        <meta name="keywords" content="About BusinessLogics, software development company, custom business software, ERP software company, workflow automation software" />
+        <link rel="canonical" href="https://businesslogics.in/about" />
+        <meta property="og:title" content="About BusinessLogics | Software Engineering Team" />
+        <meta property="og:description" content="Meet the team behind BusinessLogics and learn how we build scalable software for operations-driven businesses." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/about" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       <motion.h1
         style={{ y: yTitle, opacity: opacityTitle }}
         className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-12 text-white relative z-0 tracking-tight"
       >
-        About Us
+        About BusinessLogics
       </motion.h1>
 
       <div className="prose prose-invert prose-lg text-zinc-400 relative z-10">
@@ -116,6 +170,76 @@ export default function AboutPage() {
           ))}
         </div>
       </div>
+
+      <section className="mt-20 bg-[#0A0A0A] border border-zinc-900 rounded-2xl p-6 sm:p-10 relative z-10 space-y-10">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Our Mission</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            Our mission is to help ambitious companies run with less friction by replacing patchwork tools with focused digital systems. We believe software should simplify decision-making, reduce manual dependency, and create operational confidence at every level of the organization.
+          </p>
+          <p className="text-zinc-400 leading-relaxed">
+            We specialize in high-impact systems where reliability and speed matter, including custom business software, ERP software, and workflow automation software initiatives.
+          </p>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Our Approach to Software Development</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            We follow a collaborative, engineering-first process that starts with deep process understanding before architecture decisions are made. Every system is planned for maintainability, integration readiness, and measurable business outcomes.
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+            <li>Discovery-driven planning with stakeholder and operator alignment.</li>
+            <li>Modular system design for iterative delivery and scale.</li>
+            <li>Quality assurance and real-user validation throughout development.</li>
+            <li>Post-launch support focused on adoption and continuous improvement.</li>
+          </ul>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Industries We Serve</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            BusinessLogics builds software for teams that need precision and adaptability. We support manufacturing, retail, healthcare, logistics, professional services, and growth-stage digital businesses.
+          </p>
+          <p className="text-zinc-400 leading-relaxed">
+            In each sector, our goal is the same: translate business reality into stable software architecture so teams can execute faster, stay compliant, and grow without operational bottlenecks.
+          </p>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Why Businesses Choose Us</h2>
+          <ul className="list-disc pl-6 space-y-2 text-zinc-300 mb-4">
+            <li>Business-first engineering that maps software to operational reality.</li>
+            <li>Transparent delivery with milestone-based communication.</li>
+            <li>Long-term technical partnership instead of one-time handoff.</li>
+            <li>Domain depth across business process automation and inventory management software.</li>
+          </ul>
+          <p className="text-zinc-400 leading-relaxed">
+            If you are evaluating options, explore our <Link to="/services" className="text-[#D4AF37] hover:text-white transition-colors">software development services</Link> or review our <Link to="/work" className="text-[#D4AF37] hover:text-white transition-colors">work portfolio</Link>.
+          </p>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">FAQ</h2>
+          <div className="space-y-4 text-zinc-300">
+            <div>
+              <h3 className="text-white font-semibold mb-1">What type of companies do you typically work with?</h3>
+              <p className="text-zinc-400">We work with growing teams that need tailored systems, typically from SMB to mid-market scale.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Do you only build new products or also improve existing software?</h3>
+              <p className="text-zinc-400">Both. We build net-new systems and modernize legacy platforms through phased transitions.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">How involved is our internal team during development?</h3>
+              <p className="text-zinc-400">Your team stays involved through discovery, milestone reviews, and user acceptance checkpoints.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Can your team support SEO and growth after launch?</h3>
+              <p className="text-zinc-400">Yes. We also provide search engine optimization services to improve discoverability and lead quality.</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }

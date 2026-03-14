@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Cpu, GitMerge, BarChart3, FileText, RefreshCw, Zap } from 'lucide-react';
 
@@ -32,8 +33,60 @@ export default function BusinessProcessAutomationPage() {
     'Lower operational costs while increasing throughput',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the first process we should automate?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Start with high-volume, low-complexity workflows that currently involve repetitive manual approvals or data entry.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can automation handle exceptions and manual overrides?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We build exception branches and controlled override paths to keep operations flexible without losing governance.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How is success measured after implementation?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We track cycle time reduction, error-rate changes, SLA compliance, and throughput improvements against your baseline.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Will automation replace human teams?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Automation removes repetitive effort so teams can focus on judgment-intensive, customer-facing, and strategic responsibilities.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Business Process Automation | BusinessLogics</title>
+        <meta name="description" content="Business process automation services to streamline approvals, reduce errors, and scale operations. Build automated workflows with BusinessLogics." />
+        <meta name="keywords" content="business process automation, process automation software, workflow automation, BPA solutions" />
+        <link rel="canonical" href="https://businesslogics.in/business-process-automation" />
+        <meta property="og:title" content="Business Process Automation | BusinessLogics" />
+        <meta property="og:description" content="Transform manual operations into intelligent, governed, and scalable automated processes." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/business-process-automation" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 w-[500px] h-[400px] bg-[#D4AF37] opacity-[0.05] blur-[150px] rounded-full -translate-x-1/2" />
@@ -120,6 +173,82 @@ export default function BusinessProcessAutomationPage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">What is Business Process Automation</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Business process automation is the structured transformation of repetitive, rule-driven operations into software-managed workflows. It is broader than one isolated automation tool because it covers interdependent processes across departments, systems, and decision points.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              In practice, business process automation connects triggers, approvals, data validation, document generation, and reporting into one governed chain. This reduces delay, improves consistency, and gives leaders a transparent operating view.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Benefits of Automating Business Processes</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Organizations that automate core processes usually see measurable improvements in turnaround time, accuracy, and operational resilience within the first implementation phase.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Faster service delivery through reduced handoff delays.</li>
+              <li>Lower operational costs by minimizing manual repetition.</li>
+              <li>Consistent policy enforcement across branches and teams.</li>
+              <li>Comprehensive audit trails for governance and compliance.</li>
+              <li>Greater leadership visibility with real-time process data.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Examples of Automated Workflows</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              We implement business process automation in both customer-facing and internal operations. Typical examples include enquiry qualification and assignment, purchase request approvals, invoice matching, onboarding checklists, claim processing, and renewal reminders.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Sales lead to proposal workflow with SLA-based escalations.</li>
+              <li>Procurement pipeline from request to vendor payment.</li>
+              <li>Employee onboarding with document verification checkpoints.</li>
+              <li>Support ticket routing with severity and queue logic.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">How We Implement Automation</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Our delivery framework starts with measurable process baselines so improvements are visible and actionable. We map process states, define rules and exception paths, implement integrations, test with pilot teams, and then scale in phases.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Discovery workshops with process owners and operators.</li>
+              <li>Target-state process blueprint and automation matrix.</li>
+              <li>Incremental implementation with rollback-safe releases.</li>
+              <li>Post-launch dashboards for continuous optimization.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">What is the first process we should automate?</h3>
+                <p className="text-zinc-400">Start with high-volume, low-complexity workflows that currently involve repetitive manual approvals or data entry.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can automation handle exceptions and manual overrides?</h3>
+                <p className="text-zinc-400">Yes. We build exception branches and controlled override paths to keep operations flexible without losing governance.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">How is success measured after implementation?</h3>
+                <p className="text-zinc-400">We track cycle time reduction, error-rate changes, SLA compliance, and throughput improvements against your baseline.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Will automation replace human teams?</h3>
+                <p className="text-zinc-400">Automation removes repetitive effort so teams can focus on judgment-intensive, customer-facing, and strategic responsibilities.</p>
+              </div>
             </div>
           </motion.div>
         </div>

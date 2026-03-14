@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, LayoutDashboard, Users, ShoppingCart, FileText, Server, BarChart3 } from 'lucide-react';
 
@@ -35,8 +36,60 @@ export default function ERPSoftwarePage() {
     'Scales from 10 users to 10,000 without re-platforming',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How is custom ERP different from off-the-shelf ERP?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Custom ERP is built around your business logic, reducing process mismatch and expensive workarounds common with generic systems.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can we deploy modules in phases?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We typically launch high-priority modules first, then add finance, inventory, HR, and analytics in controlled milestones.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Will migration from our current tools be supported?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We handle data mapping, validation, and cutover planning to keep operational risk low during transition.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Is ERP software suitable for mid-sized businesses?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely. Mid-sized organizations often see the fastest ROI because ERP removes bottlenecks that appear during growth.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Custom ERP Software Development | BusinessLogics</title>
+        <meta name="description" content="Custom ERP software development for manufacturing, retail, and logistics companies. Automate operations and manage inventory with BusinessLogics ERP." />
+        <meta name="keywords" content="ERP software, custom ERP software, ERP system development, ERP solution, business ERP software" />
+        <link rel="canonical" href="https://businesslogics.in/erp-software" />
+        <meta property="og:title" content="Custom ERP Software | BusinessLogics" />
+        <meta property="og:description" content="Build scalable ERP systems tailored for your business operations and compliance needs." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/erp-software" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
@@ -48,8 +101,8 @@ export default function ERPSoftwarePage() {
               ERP DEVELOPMENT
             </span>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
-              ERP Software<br />
-              <span className="italic font-serif text-[#D4AF37]">for Businesses</span>
+              Custom ERP<br />
+              <span className="italic font-serif text-[#D4AF37]">Software</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed mb-10">
               Run your entire business from a single platform. BusinessLogics designs and builds custom ERP software for businesses that outgrow generic tools — deep-integrated, India-compliant, and built exactly for your industry.
@@ -170,6 +223,80 @@ export default function ERPSoftwarePage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">What is ERP Software</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              ERP software is an integrated operating system for your business. It connects departments such as finance, procurement, inventory, HR, sales, and operations in one consistent data model so everyone works from the same source of truth.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              A custom ERP software implementation is especially valuable for organizations with unique rules, multi-location workflows, or compliance-heavy processes that generic tools cannot model accurately.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Core ERP Modules</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Our ERP architecture is modular so you can prioritize immediate needs and add capabilities as your organization scales.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Finance and accounting with GST workflows, ledgers, and tax-ready reports.</li>
+              <li>Procurement and vendor lifecycle management.</li>
+              <li>Inventory management software capabilities for stock, transfer, and valuation.</li>
+              <li>Sales, order management, and fulfillment visibility.</li>
+              <li>HR, payroll, and role-based access governance.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Benefits of Custom ERP Systems</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              A well-implemented ERP system improves operational confidence because decisions are based on complete, current data instead of disconnected reports. Teams coordinate faster, duplicate effort is reduced, and audits become simpler.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Real-time cross-department reporting and forecasting.</li>
+              <li>Standardized workflows with fewer manual exceptions.</li>
+              <li>Improved cash-flow visibility from procurement to invoicing.</li>
+              <li>Higher data quality for planning, analytics, and compliance.</li>
+              <li>Scalable platform that grows with new teams and locations.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Why Choose BusinessLogics ERP</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              We build ERP software around the operational reality of Indian businesses: local compliance, mixed legacy environments, and evolving process requirements. Instead of forcing your teams to fit a rigid template, we design systems that respect how your business actually runs.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              Our ERP engagements often connect directly with <Link to="/inventory-management-software" className="text-[#D4AF37] hover:text-white transition-colors">inventory management software</Link> for stock-intensive operations and enterprise <Link to="/business-process-automation" className="text-[#D4AF37] hover:text-white transition-colors">business process automation</Link> for approval and orchestration efficiency.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">How is custom ERP different from off-the-shelf ERP?</h3>
+                <p className="text-zinc-400">Custom ERP is built around your business logic, reducing process mismatch and expensive workarounds common with generic systems.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can we deploy modules in phases?</h3>
+                <p className="text-zinc-400">Yes. We typically launch high-priority modules first, then add finance, inventory, HR, and analytics in controlled milestones.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Will migration from our current tools be supported?</h3>
+                <p className="text-zinc-400">Yes. We handle data mapping, validation, and cutover planning to keep operational risk low during transition.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Is ERP software suitable for mid-sized businesses?</h3>
+                <p className="text-zinc-400">Absolutely. Mid-sized organizations often see the fastest ROI because ERP removes bottlenecks that appear during growth.</p>
+              </div>
             </div>
           </motion.div>
         </div>

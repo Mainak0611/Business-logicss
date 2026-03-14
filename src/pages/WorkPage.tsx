@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import img1 from '../assets/1.png';
@@ -25,18 +27,70 @@ export default function WorkPage() {
   const smoothScrollY = useSpring(scrollY, { mass: 0.1, stiffness: 100, damping: 20 });
   const yBg = useTransform(smoothScrollY, [0, 1000], [0, 200]);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Do you share project outcomes with real metrics?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We present measurable outcomes, including process speed improvements and adoption impact wherever possible.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can we request a solution similar to a featured project?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We can adapt proven patterns to your domain while keeping architecture tailored to your process model.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you handle both product design and engineering?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Our team handles UX, architecture, development, and ongoing optimization as one delivery stream.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can we discuss a project before finalizing scope?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely. We start with a discovery call to understand process goals, constraints, and integration needs.'
+        }
+      }
+    ]
+  };
+
   const nextSlide = (e: React.MouseEvent) => { e.stopPropagation(); setCurrentSlide((prev) => (prev + 1) % projectImages.length); };
   const prevSlide = (e: React.MouseEvent) => { e.stopPropagation(); setCurrentSlide((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1)); };
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
+      <Helmet>
+        <title>Our Work | Custom Software Case Studies | BusinessLogics</title>
+        <meta name="description" content="Explore BusinessLogics case studies across custom business software, ERP software, workflow automation software, and inventory management software projects." />
+        <meta name="keywords" content="software case studies, custom software projects, ERP software case study, workflow automation implementation, business process automation results" />
+        <link rel="canonical" href="https://businesslogics.in/work" />
+        <meta property="og:title" content="Our Work | BusinessLogics" />
+        <meta property="og:description" content="See how BusinessLogics delivers measurable software outcomes across industries." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/work" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       <motion.div style={{ y: yBg }} className="absolute left-[10%] top-[20%] w-[300px] h-[300px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <motion.h1
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }}
         className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-white"
       >
-        Selected Work
+        Our Work
       </motion.h1>
       <motion.p
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1, ease: 'easeOut' }}
@@ -82,6 +136,69 @@ export default function WorkPage() {
           </motion.div>
         </div>
       </div>
+
+      <section className="mt-20 sm:mt-28 bg-[#0A0A0A] border border-zinc-800 rounded-2xl p-6 sm:p-10 relative z-10 space-y-10">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Case Studies</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            Our case studies represent projects where software directly improved operational outcomes, not just interface quality. We focus on measurable transformation, such as faster lead handling, cleaner data flows, and more predictable execution.
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+            <li>Custom business software for process-heavy operations.</li>
+            <li>Workflow automation software for approval and escalation chains.</li>
+            <li>ERP software modules for cross-department visibility and reporting.</li>
+            <li>Inventory management software for multi-location stock control.</li>
+          </ul>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Industries Served</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            We deliver across industries where operational precision, compliance, and responsiveness are essential. Projects span manufacturing, logistics, retail, healthcare, and service organizations with complex handoffs between teams.
+          </p>
+          <p className="text-zinc-400 leading-relaxed">
+            Each engagement begins with process mapping to ensure the final product reflects real business constraints, not assumptions. This is especially important in multi-site and high-volume environments.
+          </p>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Project Results</h2>
+          <p className="text-zinc-400 leading-relaxed mb-4">
+            The strongest outcome of our delivery model is durable operational improvement. We measure project success through cycle-time reduction, lower manual effort, data accuracy, and user adoption.
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+            <li>Improved process throughput via automation and queue visibility.</li>
+            <li>Reduced follow-up delays through event-driven notifications.</li>
+            <li>Higher data trust through centralized records and audit trails.</li>
+            <li>Better planning through real-time dashboards and reporting.</li>
+          </ul>
+          <p className="text-zinc-400 leading-relaxed mt-4">
+            For a full capability overview, visit our <Link to="/services" className="text-[#D4AF37] hover:text-white transition-colors">software development services</Link> page or explore specific solution tracks such as <Link to="/business-process-automation" className="text-[#D4AF37] hover:text-white transition-colors">business process automation</Link> and <Link to="/search-engine-optimization" className="text-[#D4AF37] hover:text-white transition-colors">search engine optimization services</Link>.
+          </p>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">FAQ</h2>
+          <div className="space-y-4 text-zinc-300">
+            <div>
+              <h3 className="text-white font-semibold mb-1">Do you share project outcomes with real metrics?</h3>
+              <p className="text-zinc-400">Yes. We present measurable outcomes, including process speed improvements and adoption impact wherever possible.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Can we request a solution similar to a featured project?</h3>
+              <p className="text-zinc-400">Yes. We can adapt proven patterns to your domain while keeping architecture tailored to your process model.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Do you handle both product design and engineering?</h3>
+              <p className="text-zinc-400">Yes. Our team handles UX, architecture, development, and ongoing optimization as one delivery stream.</p>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Can we discuss a project before finalizing scope?</h3>
+              <p className="text-zinc-400">Absolutely. We start with a discovery call to understand process goals, constraints, and integration needs.</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 }

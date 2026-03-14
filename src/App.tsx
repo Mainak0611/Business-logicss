@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import CustomBusinessSoftwarePage from './pages/CustomBusinessSoftwarePage';
 import WorkflowAutomationPage from './pages/WorkflowAutomationPage';
 import ERPSoftwarePage from './pages/ERPSoftwarePage';
@@ -306,26 +307,41 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-            {['Services', 'Work', 'About'].map((item) => (
-              <Link key={item} to={`/${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)} className="text-2xl text-white font-bold hover:text-[#D4AF37]">{item}</Link>
-            ))}
-            <button
-              onClick={() => { setIsMobileMenuOpen(false); setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 100); }}
-              className="mt-4 px-8 py-3 bg-[#D4AF37] text-black font-bold rounded-full text-sm"
-            >
-              Start Project
-            </button>
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-3xl z-40 md:hidden">
+            <nav className="absolute top-28 left-0 right-0 px-6 flex flex-col items-center gap-8">
+              {[
+                { label: 'Services', path: '/services' },
+                { label: 'Work', path: '/work' },
+                { label: 'About', path: '/about' }
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl text-white font-bold hover:text-[#D4AF37]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="absolute top-[22rem] left-0 right-0 px-6 flex justify-center">
+              <button
+                onClick={() => { setIsMobileMenuOpen(false); setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 100); }}
+                className="px-8 py-3 bg-[#D4AF37] text-black font-bold rounded-full text-sm"
+              >
+                Start Project
+              </button>
+            </div>
           </div>
         )}
       </header>
 
-      <main className="pt-20 flex-grow">
+      <main className={`pt-20 flex-grow transition-all duration-200 ${isMobileMenuOpen ? 'blur-xl pointer-events-none select-none' : ''}`}>
         {children}
       </main>
 
       {/* Footer / CTA */}
-      <section className="pt-20 pb-10 px-6 mt-auto">
+      <section className={`pt-20 pb-10 px-6 mt-auto transition-all duration-200 ${isMobileMenuOpen ? 'blur-xl pointer-events-none select-none' : ''}`}>
         <div className="max-w-5xl mx-auto">
           <div className="relative bg-gradient-to-b from-[#0A0A0A] to-black border border-[#D4AF37]/20 rounded-[3rem] p-10 md:p-24 overflow-hidden text-center corner-accent">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#D4AF37] opacity-10 blur-[100px]" />
@@ -736,22 +752,34 @@ const HomePage = () => {
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/custom-business-software" element={<CustomBusinessSoftwarePage />} />
-          <Route path="/workflow-automation-software" element={<WorkflowAutomationPage />} />
-          <Route path="/erp-software" element={<ERPSoftwarePage />} />
-          <Route path="/inventory-management-software" element={<InventoryManagementPage />} />
-          <Route path="/business-process-automation" element={<BusinessProcessAutomationPage />} />
-          <Route path="/search-engine-optimization" element={<SEOPage />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'BusinessLogics',
+            url: 'https://businesslogics.in',
+            logo: 'https://businesslogics.in/logo.png',
+            sameAs: ['https://www.linkedin.com/company/businesslogicss']
+          })}</script>
+        </Helmet>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/custom-business-software" element={<CustomBusinessSoftwarePage />} />
+            <Route path="/workflow-automation-software" element={<WorkflowAutomationPage />} />
+            <Route path="/erp-software" element={<ERPSoftwarePage />} />
+            <Route path="/inventory-management-software" element={<InventoryManagementPage />} />
+            <Route path="/business-process-automation" element={<BusinessProcessAutomationPage />} />
+            <Route path="/search-engine-optimization" element={<SEOPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </HelmetProvider>
   );
 }

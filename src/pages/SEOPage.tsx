@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Search, BarChart3, Globe, FileText, Link2, TrendingUp } from 'lucide-react';
 
@@ -35,8 +36,60 @@ export default function SEOPage() {
     'India-focused strategy: GST, local markets, regional search intent',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long does SEO usually take to show results?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most websites see measurable ranking and traffic movement within 3 to 6 months, depending on competition and current site quality.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you provide technical and content SEO together?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Our search engine optimization services combine technical fixes, on-page optimization, and strategy-led content improvements.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can SEO help local businesses in India?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely. Local SEO optimizes geo-specific intent, Google Business Profile visibility, and location pages for regional discovery.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Will we receive reporting and recommendations?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. You receive regular performance updates with ranking trends, traffic diagnostics, and prioritized next actions.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Search Engine Optimization Services | BusinessLogics</title>
+        <meta name="description" content="Search engine optimization services for Indian businesses. Improve rankings with technical SEO, on-page optimization, and content strategy from BusinessLogics." />
+        <meta name="keywords" content="search engine optimization services, SEO services India, technical SEO, on-page SEO, business SEO strategy" />
+        <link rel="canonical" href="https://businesslogics.in/search-engine-optimization" />
+        <meta property="og:title" content="Search Engine Optimization Services | BusinessLogics" />
+        <meta property="og:description" content="Grow organic traffic and rankings with technical and content-led SEO services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/search-engine-optimization" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
@@ -49,7 +102,7 @@ export default function SEOPage() {
             </span>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
               Search Engine<br />
-              <span className="italic font-serif text-[#D4AF37]">Optimization</span>
+              <span className="italic font-serif text-[#D4AF37]">Optimization Services</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed mb-10">
               Your customers are searching for your solution right now — are you showing up? BusinessLogics delivers data-driven search engine optimization that puts your business at the top of Google for the keywords that drive real revenue.
@@ -170,6 +223,79 @@ export default function SEOPage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">What is SEO</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              SEO, or search engine optimization, is the process of improving a website so search engines can crawl, understand, and rank it for relevant user queries. Strong SEO aligns technical quality, content clarity, and topical authority so your website appears when potential customers are actively searching.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              Search engine optimization services are most effective when integrated into product, design, and content planning rather than treated as a last-step checklist.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Technical SEO</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Technical SEO ensures your site can be discovered and interpreted correctly by search engines. It also improves user experience factors that influence rankings and conversions.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Core Web Vitals, page speed, and mobile performance tuning.</li>
+              <li>Crawl management with clean architecture and internal links.</li>
+              <li>Schema markup and structured data validation.</li>
+              <li>Indexation controls for canonicalization and duplicate handling.</li>
+              <li>Technical monitoring for broken pages, redirects, and coverage issues.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">On-Page SEO</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              On-page SEO focuses on content relevance and information architecture. We optimize headings, metadata, semantic hierarchy, and intent alignment so each page communicates a clear topic to both users and search engines.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Intent-driven keyword mapping and page-level targeting.</li>
+              <li>H1, H2, and H3 hierarchy improvements for topic clarity.</li>
+              <li>Internal linking patterns that guide users and distribute authority.</li>
+              <li>Content improvements focused on accuracy, depth, and trust signals.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Why SEO is Important for Businesses</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              SEO compounds. Unlike paid campaigns that pause when spend stops, optimized pages can continue attracting qualified traffic over time. This creates predictable acquisition economics and stronger brand credibility in your category.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              At BusinessLogics, our <Link to="/services" className="text-[#D4AF37] hover:text-white transition-colors">software development services</Link> and SEO programs are coordinated so performance, content, and conversion quality improve together.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">How long does SEO usually take to show results?</h3>
+                <p className="text-zinc-400">Most websites see measurable ranking and traffic movement within 3 to 6 months, depending on competition and current site quality.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Do you provide technical and content SEO together?</h3>
+                <p className="text-zinc-400">Yes. Our search engine optimization services combine technical fixes, on-page optimization, and strategy-led content improvements.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can SEO help local businesses in India?</h3>
+                <p className="text-zinc-400">Absolutely. Local SEO optimizes geo-specific intent, Google Business Profile visibility, and location pages for regional discovery.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Will we receive reporting and recommendations?</h3>
+                <p className="text-zinc-400">Yes. You receive regular performance updates with ranking trends, traffic diagnostics, and prioritized next actions.</p>
+              </div>
             </div>
           </motion.div>
         </div>

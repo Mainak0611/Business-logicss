@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Package, ScanLine, BarChart3, Bell, RefreshCw, ShieldCheck } from 'lucide-react';
 
@@ -32,8 +33,60 @@ export default function InventoryManagementPage() {
     'Mobile-first interface for warehouse staff on the floor',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Can inventory software handle multiple warehouses and stores?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Our system supports location-level stock, inter-warehouse transfers, and consolidated reporting.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you support barcode-based operations?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Barcode and QR workflows are supported for receiving, picking, transfer, and audits.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can we enforce approval workflows for stock adjustments?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. You can configure maker-checker flows and maintain complete adjustment logs for compliance.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Will this work for fast-moving SKU catalogs?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. The platform is optimized for high-volume updates, rapid scanning, and real-time dashboarding.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Inventory Management Software | BusinessLogics</title>
+        <meta name="description" content="Inventory management software with barcode scanning, stock automation, and multi-warehouse visibility. Built by BusinessLogics for scale-ready operations." />
+        <meta name="keywords" content="inventory management software, stock management system, warehouse inventory software, inventory automation" />
+        <link rel="canonical" href="https://businesslogics.in/inventory-management-software" />
+        <meta property="og:title" content="Inventory Management Software | BusinessLogics" />
+        <meta property="og:description" content="Track stock in real time and automate replenishment with custom inventory systems." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/inventory-management-software" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-0 w-[450px] h-[450px] bg-[#D4AF37] opacity-[0.05] blur-[150px] rounded-full" />
@@ -120,6 +173,80 @@ export default function InventoryManagementPage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Why Businesses Need Inventory Management</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Inventory directly impacts cash flow, fulfillment reliability, and customer trust. Without a dedicated inventory management software system, businesses often rely on delayed manual updates that hide stock risks until they become expensive problems.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              A modern inventory platform creates real-time visibility across purchase, storage, transfer, and dispatch so teams can make faster, more accurate decisions and avoid both overstocking and stockouts.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Key Features</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              We design inventory management software with practical features for operational teams, warehouse leads, and management reporting.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Live stock tracking across warehouses, bins, and in-transit inventory.</li>
+              <li>Batch, serial, and expiry handling for regulated or perishable goods.</li>
+              <li>Automated reorder suggestions using configurable thresholds.</li>
+              <li>Cycle-count workflows with discrepancy and adjustment controls.</li>
+              <li>Role-based access and full inventory audit history.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Inventory Automation Benefits</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Automation improves consistency across procurement, receiving, allocation, and dispatch. Teams no longer depend on manual reminders and spreadsheet reconciliation to keep operations aligned.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Lower carrying costs through better replenishment timing.</li>
+              <li>Faster fulfillment with accurate pick-and-pack workflows.</li>
+              <li>Reduced shrinkage from stronger movement traceability.</li>
+              <li>Higher customer satisfaction through improved stock availability.</li>
+              <li>More confident planning with trustworthy consumption and turnover data.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Integration with ERP Systems</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Inventory is strongest when connected to purchasing, sales, finance, and planning workflows. That is why we architect inventory modules with clean API integration and event synchronization.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              If you are scaling operations across multiple departments, we can connect inventory management software with your <Link to="/erp-software" className="text-[#D4AF37] hover:text-white transition-colors">ERP software</Link> implementation to keep stock valuation, procurement, and order commitments fully aligned.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can inventory software handle multiple warehouses and stores?</h3>
+                <p className="text-zinc-400">Yes. Our system supports location-level stock, inter-warehouse transfers, and consolidated reporting.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Do you support barcode-based operations?</h3>
+                <p className="text-zinc-400">Yes. Barcode and QR workflows are supported for receiving, picking, transfer, and audits.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can we enforce approval workflows for stock adjustments?</h3>
+                <p className="text-zinc-400">Yes. You can configure maker-checker flows and maintain complete adjustment logs for compliance.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Will this work for fast-moving SKU catalogs?</h3>
+                <p className="text-zinc-400">Yes. The platform is optimized for high-volume updates, rapid scanning, and real-time dashboarding.</p>
+              </div>
             </div>
           </motion.div>
         </div>

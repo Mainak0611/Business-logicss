@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Code2, Layers, Users, Briefcase, Cpu, BarChart3 } from 'lucide-react';
 
@@ -35,8 +36,60 @@ export default function CustomBusinessSoftwarePage() {
     'Built to Indian compliance standards (GST, TDS, labour law)',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long does custom business software development usually take?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most projects ship an initial production version in 8 to 16 weeks depending on scope, integrations, and migration complexity.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can you modernize an existing legacy system instead of rebuilding from scratch?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We often phase modernization so your team keeps operating while we progressively replace fragile modules.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Will the software integrate with our current tools?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We design APIs and connectors for accounting systems, ERPs, CRMs, payment gateways, and internal databases.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do we own the code and data?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely. You retain full ownership of source code, deployment assets, and business data.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Custom Business Software Development | BusinessLogics</title>
+        <meta name="description" content="Custom business software development for Indian businesses. Build scalable systems tailored to your workflows with BusinessLogics." />
+        <meta name="keywords" content="custom business software, custom software development, bespoke business software, business software development company" />
+        <link rel="canonical" href="https://businesslogics.in/custom-business-software" />
+        <meta property="og:title" content="Custom Business Software Development | BusinessLogics" />
+        <meta property="og:description" content="Get custom business software built around your process logic, integrations, and growth roadmap." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/custom-business-software" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
@@ -49,7 +102,7 @@ export default function CustomBusinessSoftwarePage() {
             </span>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
               Custom Business<br />
-              <span className="italic font-serif text-[#D4AF37]">Software Solutions</span>
+              <span className="italic font-serif text-[#D4AF37]">Software Development</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed mb-10">
               Off-the-shelf software was never built for your business. BusinessLogics engineers custom business software that fits your exact workflows, processes, and growth ambitions — from the ground up.
@@ -170,6 +223,86 @@ export default function CustomBusinessSoftwarePage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">What is Custom Business Software</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Custom business software is a purpose-built digital platform designed around your real operating model, not a generic checklist of features made for everyone. Unlike off-the-shelf products, a custom system reflects your approvals, pricing logic, customer lifecycle, data dependencies, and reporting standards from day one.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              For growing companies, this matters because your competitive advantage often lives in process details. When software is built around those details, teams move faster, decisions become more accurate, and leaders get visibility without asking five departments for spreadsheet exports.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Benefits of Custom Software for Businesses</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              A tailored platform creates compounding value because every release maps to your business goals. Teams spend less time on manual workarounds and more time on execution, while management gains reliable data for planning and forecasting.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Process-fit architecture that reduces rework and exceptions.</li>
+              <li>Higher adoption because screens and flows match day-to-day operations.</li>
+              <li>Built-in integrations with accounting, ERP software, and workflow tools.</li>
+              <li>Improved security through role-based permissions and audit trails.</li>
+              <li>Lower long-term cost than stacked subscriptions across multiple tools.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Our Custom Software Development Process</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              BusinessLogics follows a practical engineering process that balances speed with stability. We start with process discovery, build a technical blueprint, ship in milestones, and optimize with real usage data after launch.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li><strong>Discovery:</strong> Workflow mapping, stakeholder interviews, and requirements prioritization.</li>
+              <li><strong>Architecture:</strong> Modular design for performance, scalability, and future integrations.</li>
+              <li><strong>Development:</strong> Incremental releases with QA checkpoints and user feedback loops.</li>
+              <li><strong>Go-live:</strong> Migration support, team onboarding, and production hardening.</li>
+              <li><strong>Continuous improvement:</strong> Feature expansion and analytics-led iteration.</li>
+            </ul>
+            <p className="text-zinc-400 leading-relaxed mt-5">
+              Many clients pair this foundation with our <Link to="/erp-software" className="text-[#D4AF37] hover:text-white transition-colors">ERP software</Link> implementation or our <Link to="/workflow-automation-software" className="text-[#D4AF37] hover:text-white transition-colors">workflow automation software</Link> capabilities to unify operations end to end.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Industries We Serve</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              We build custom systems for companies that cannot afford rigid software. From manufacturing operations that need traceability to service businesses that need SLA-driven delivery, our solutions adapt to domain complexity instead of forcing compromise.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Manufacturing and distribution with procurement and production dependencies.</li>
+              <li>Healthcare operations requiring structured records and controlled access.</li>
+              <li>Retail and e-commerce with catalog, order, and inventory management software needs.</li>
+              <li>Financial services with strict approvals, logs, and compliance workflows.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">How long does custom business software development usually take?</h3>
+                <p className="text-zinc-400">Most projects ship an initial production version in 8 to 16 weeks depending on scope, integrations, and migration complexity.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can you modernize an existing legacy system instead of rebuilding from scratch?</h3>
+                <p className="text-zinc-400">Yes. We often phase modernization so your team keeps operating while we progressively replace fragile modules.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Will the software integrate with our current tools?</h3>
+                <p className="text-zinc-400">Yes. We design APIs and connectors for accounting systems, ERPs, CRMs, payment gateways, and internal databases.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Do we own the code and data?</h3>
+                <p className="text-zinc-400">Absolutely. You retain full ownership of source code, deployment assets, and business data.</p>
+              </div>
             </div>
           </motion.div>
         </div>

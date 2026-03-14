@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Zap, GitBranch, Bell, RefreshCw, Lock, TrendingUp } from 'lucide-react';
 
@@ -35,8 +36,60 @@ export default function WorkflowAutomationPage() {
     '24/7 automated operations even when your team is offline',
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do we identify which workflows to automate first?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Start with high-volume, repetitive processes where delays and errors are currently expensive, such as approvals, invoicing, and status updates.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can workflow automation coexist with our current systems?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. We integrate automation layers with your existing ERP, CRM, and databases so you get value without disruptive replacements.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you support exception handling in automated flows?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Workflows include fallback paths, escalation rules, and human review checkpoints for non-standard scenarios.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How quickly can teams be trained?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most teams can adopt the system within days because we build role-specific interfaces around existing responsibilities.'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Helmet>
+        <title>Workflow Automation Software | BusinessLogics</title>
+        <meta name="description" content="Workflow automation software for approvals, escalations, and integrations. Automate repetitive tasks and accelerate operations with BusinessLogics." />
+        <meta name="keywords" content="workflow automation software, workflow automation tools, process workflow automation, business automation software" />
+        <link rel="canonical" href="https://businesslogics.in/workflow-automation-software" />
+        <meta property="og:title" content="Workflow Automation Software | BusinessLogics" />
+        <meta property="og:description" content="Automate repetitive business workflows with smart triggers, approvals, and real-time monitoring." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://businesslogics.in/workflow-automation-software" />
+        <meta property="og:image" content="https://businesslogics.in/logo.png" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       {/* Hero */}
       <section className="relative py-20 sm:py-32 px-6 overflow-hidden border-b border-[#D4AF37]/10">
         <div className="absolute inset-0 pointer-events-none">
@@ -170,6 +223,80 @@ export default function WorkflowAutomationPage() {
                   <span className="text-zinc-300 text-sm leading-relaxed">{b}</span>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-24 px-6 bg-[#0A0A0A] border-y border-zinc-900">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">What is Workflow Automation</h2>
+            <p className="text-zinc-400 leading-relaxed mb-4">
+              Workflow automation is the use of software to execute repetitive business tasks based on pre-defined rules, triggers, and approvals. Instead of relying on memory, chat messages, and manual follow-ups, teams run reliable processes that move automatically from one step to the next.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              Effective workflow automation software does more than route tasks. It orchestrates data exchange between systems, sends contextual notifications, validates inputs, and creates an audit trail for every decision, making operations faster and easier to govern.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Benefits of Automating Business Workflows</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Automation turns process consistency into a competitive advantage. Teams spend less time coordinating routine tasks and more time on customer experience, quality, and growth initiatives.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Shorter cycle times for approvals, dispatch, invoicing, and escalations.</li>
+              <li>Fewer errors from copy-paste handoffs across departments.</li>
+              <li>Live status visibility for managers and stakeholders.</li>
+              <li>Improved compliance with timestamped approval histories.</li>
+              <li>Scalable operations without adding proportional headcount.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Features of Our Workflow Automation Platform</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              Our platform is designed for real-world operations where exceptions, deadlines, and integrations matter. We combine flexible workflow design with governance controls so teams can automate with confidence.
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+              <li>Trigger-based routing for time, events, and data changes.</li>
+              <li>Approval matrices with escalation and SLA tracking.</li>
+              <li>Role-based permissions and full activity logs.</li>
+              <li>API connectors for ERP software, CRM tools, and communication channels.</li>
+              <li>Dashboards for throughput, exceptions, and bottleneck analysis.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">Use Cases Across Industries</h2>
+            <p className="text-zinc-400 leading-relaxed mb-5">
+              We implement workflow automation software in industries where process reliability directly affects revenue, customer trust, and compliance. Common implementations include lead qualification and assignment, purchase approvals, vendor onboarding, service ticket routing, payroll reviews, and claims processing.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              If your objective is wider process transformation, we also deliver end-to-end <Link to="/business-process-automation" className="text-[#D4AF37] hover:text-white transition-colors">business process automation</Link> programs that combine workflows, integrations, and analytics into a unified operating model.
+            </p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-6">FAQ</h2>
+            <div className="space-y-5 text-zinc-300">
+              <div>
+                <h3 className="text-white font-semibold mb-1">How do we identify which workflows to automate first?</h3>
+                <p className="text-zinc-400">Start with high-volume, repetitive processes where delays and errors are currently expensive, such as approvals, invoicing, and status updates.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Can workflow automation coexist with our current systems?</h3>
+                <p className="text-zinc-400">Yes. We integrate automation layers with your existing ERP, CRM, and databases so you get value without disruptive replacements.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Do you support exception handling in automated flows?</h3>
+                <p className="text-zinc-400">Yes. Workflows include fallback paths, escalation rules, and human review checkpoints for non-standard scenarios.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">How quickly can teams be trained?</h3>
+                <p className="text-zinc-400">Most teams can adopt the system within days because we build role-specific interfaces around existing responsibilities.</p>
+              </div>
             </div>
           </motion.div>
         </div>
