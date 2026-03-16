@@ -73,8 +73,8 @@ export default function WorkPage() {
     <div className="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
       <Helmet>
         <title>Our Work | Custom Software Case Studies | BusinessLogics</title>
-        <meta name="description" content="Explore BusinessLogics case studies across custom business software, ERP software, workflow automation software, and inventory management software projects." />
-        <meta name="keywords" content="software case studies, custom software projects, ERP software case study, workflow automation implementation, business process automation results" />
+        <meta name="description" content="Explore BusinessLogics case studies across custom business software, ERP software, AI automation software, and inventory management software projects." />
+        <meta name="keywords" content="software case studies, custom software projects, ERP software case study, AI automation implementation, business process automation results" />
         <link rel="canonical" href="https://businesslogics.in/work" />
         <meta property="og:title" content="Our Work | BusinessLogics" />
         <meta property="og:description" content="See how BusinessLogics delivers measurable software outcomes across industries." />
@@ -145,7 +145,7 @@ export default function WorkPage() {
           </p>
           <ul className="list-disc pl-6 space-y-2 text-zinc-300">
             <li>Custom business software for process-heavy operations.</li>
-            <li>Workflow automation software for approval and escalation chains.</li>
+            <li>AI automation software for approval and escalation chains.</li>
             <li>ERP software modules for cross-department visibility and reporting.</li>
             <li>Inventory management software for multi-location stock control.</li>
           </ul>

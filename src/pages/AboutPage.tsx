@@ -74,8 +74,8 @@ export default function AboutPage() {
     <div className="max-w-5xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
       <Helmet>
         <title>About BusinessLogics | Custom Software Company in India</title>
-        <meta name="description" content="Learn about BusinessLogics, a software engineering company delivering custom business software, ERP software, workflow automation software, and search engine optimization services." />
-        <meta name="keywords" content="About BusinessLogics, software development company, custom business software, ERP software company, workflow automation software" />
+        <meta name="description" content="Learn about BusinessLogics, a software engineering company delivering custom business software, ERP software, AI automation software, and search engine optimization services." />
+        <meta name="keywords" content="About BusinessLogics, software development company, custom business software, ERP software company, AI automation software" />
         <link rel="canonical" href="https://businesslogics.in/about" />
         <meta property="og:title" content="About BusinessLogics | Software Engineering Team" />
         <meta property="og:description" content="Meet the team behind BusinessLogics and learn how we build scalable software for operations-driven businesses." />
@@ -178,7 +178,7 @@ export default function AboutPage() {
             Our mission is to help ambitious companies run with less friction by replacing patchwork tools with focused digital systems. We believe software should simplify decision-making, reduce manual dependency, and create operational confidence at every level of the organization.
           </p>
           <p className="text-zinc-400 leading-relaxed">
-            We specialize in high-impact systems where reliability and speed matter, including custom business software, ERP software, and workflow automation software initiatives.
+            We specialize in high-impact systems where reliability and speed matter, including custom business software, ERP software, and AI automation software initiatives.
           </p>
         </motion.div>
 

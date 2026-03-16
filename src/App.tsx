@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import CustomBusinessSoftwarePage from './pages/CustomBusinessSoftwarePage';
-import WorkflowAutomationPage from './pages/WorkflowAutomationPage';
+import AIAutomationPage from './pages/AIAutomationPage';
 import ERPSoftwarePage from './pages/ERPSoftwarePage';
 import InventoryManagementPage from './pages/InventoryManagementPage';
 import BusinessProcessAutomationPage from './pages/BusinessProcessAutomationPage';
@@ -132,7 +132,7 @@ const LeftSideOrnament = () => (
 
     {/* Vertical text */}
     <div className="absolute left-2 top-1/2 -translate-y-1/2" style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>
-      <span className="text-[10px] font-mono text-zinc-700 tracking-[0.3em] uppercase">Est. 2025</span>
+      <span className="text-[10px] font-mono text-zinc-700 tracking-[0.3em] uppercase">Est. 2026</span>
     </div>
 
     {/* Small dots pattern */}
@@ -750,7 +750,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { title: 'Custom Business Software', desc: 'Bespoke software engineered around your exact workflows and business logic.', path: '/custom-business-software', tag: 'Custom Dev' },
-              { title: 'Workflow Automation', desc: 'Automate multi-step business processes with smart triggers, bots, and integrations.', path: '/workflow-automation-software', tag: 'Automation' },
+              { title: 'AI Automation', desc: 'Automate multi-step business processes with AI, smart triggers, bots, and integrations.', path: '/ai-automation-software', tag: 'Automation' },
               { title: 'ERP Software', desc: 'Unify finance, HR, inventory, and operations in one custom ERP platform.', path: '/erp-software', tag: 'ERP' },
               { title: 'Inventory Management', desc: 'Real-time stock tracking, barcode scanning, and automated reorder across warehouses.', path: '/inventory-management-software', tag: 'Inventory' },
               { title: 'Business Process Automation', desc: 'Transform manual, error-prone operations into intelligent self-running systems.', path: '/business-process-automation', tag: 'BPA' },
@@ -807,7 +807,7 @@ export default function App() {
             <Route path="/work" element={<WorkPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/custom-business-software" element={<CustomBusinessSoftwarePage />} />
-            <Route path="/workflow-automation-software" element={<WorkflowAutomationPage />} />
+            <Route path="/ai-automation-software" element={<AIAutomationPage />} />
             <Route path="/erp-software" element={<ERPSoftwarePage />} />
             <Route path="/inventory-management-software" element={<InventoryManagementPage />} />
             <Route path="/business-process-automation" element={<BusinessProcessAutomationPage />} />

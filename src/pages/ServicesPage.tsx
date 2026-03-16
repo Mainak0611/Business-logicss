@@ -17,7 +17,7 @@ export default function ServicesPage() {
     document.title = 'Our Services | BusinessLogics';
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute('content', 'Explore BusinessLogics services: custom business software, workflow automation, ERP, inventory management, business process automation, and SEO for Indian businesses.');
+      meta.setAttribute('content', 'Explore BusinessLogics services: custom business software, AI automation, ERP, inventory management, business process automation, and SEO for Indian businesses.');
     }
   }, []);
 
@@ -34,9 +34,9 @@ export default function ServicesPage() {
     },
     {
       icon: <Zap />,
-      title: 'Workflow Automation',
-      desc: 'Automate multi-step business processes with smart triggers, bots, and integrations.',
-      path: '/workflow-automation-software',
+      title: 'AI Automation',
+      desc: 'Automate multi-step business processes with AI, smart triggers, bots, and integrations.',
+      path: '/ai-automation-software',
     },
     {
       icon: <LayoutDashboard />,
@@ -107,8 +107,8 @@ export default function ServicesPage() {
     <div className="max-w-7xl mx-auto px-6 py-24 min-h-screen relative overflow-hidden">
       <Helmet>
         <title>Our Software Development Services | BusinessLogics</title>
-        <meta name="description" content="Explore BusinessLogics services including custom business software, ERP software, workflow automation software, inventory management software, business process automation, and SEO services." />
-        <meta name="keywords" content="software development services, custom business software, ERP software, workflow automation software, inventory management software, business process automation" />
+        <meta name="description" content="Explore BusinessLogics services including custom business software, ERP software, AI automation software, inventory management software, business process automation, and SEO services." />
+        <meta name="keywords" content="software development services, custom business software, ERP software, AI automation software, inventory management software, business process automation" />
         <link rel="canonical" href="https://businesslogics.in/services" />
         <meta property="og:title" content="Our Software Development Services | BusinessLogics" />
         <meta property="og:description" content="Discover software services tailored for operational efficiency, automation, and scalable growth." />
@@ -191,17 +191,17 @@ export default function ServicesPage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">Workflow Automation</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">AI Automation</h2>
           <p className="text-zinc-400 leading-relaxed mb-4">
-            Our workflow automation software and business process automation services remove repetitive effort from approvals, notifications, handoffs, and status tracking. Teams gain speed without sacrificing governance.
+            Our AI automation software and business process automation services remove repetitive effort from approvals, notifications, handoffs, and status tracking. Teams gain speed without sacrificing governance.
           </p>
           <ul className="list-disc pl-6 space-y-2 text-zinc-300">
-            <li>Trigger-based workflows with escalation and SLA controls.</li>
+            <li>Trigger-based automations with escalation and SLA controls.</li>
             <li>Integration with ERP, CRM, HR, and communication channels.</li>
             <li>Exception handling paths for real-world process variability.</li>
           </ul>
           <p className="text-zinc-400 leading-relaxed mt-4">
-            See our <Link to="/workflow-automation-software" className="text-[#D4AF37] hover:text-white transition-colors">workflow automation software</Link> and <Link to="/business-process-automation" className="text-[#D4AF37] hover:text-white transition-colors">business process automation</Link> pages.
+            See our <Link to="/ai-automation-software" className="text-[#D4AF37] hover:text-white transition-colors">AI automation software</Link> and <Link to="/business-process-automation" className="text-[#D4AF37] hover:text-white transition-colors">business process automation</Link> pages.
           </p>
         </motion.div>
 

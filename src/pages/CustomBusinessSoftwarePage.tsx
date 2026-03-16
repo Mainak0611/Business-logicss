@@ -267,7 +267,7 @@ export default function CustomBusinessSoftwarePage() {
               <li><strong>Continuous improvement:</strong> Feature expansion and analytics-led iteration.</li>
             </ul>
             <p className="text-zinc-400 leading-relaxed mt-5">
-              Many clients pair this foundation with our <Link to="/erp-software" className="text-[#D4AF37] hover:text-white transition-colors">ERP software</Link> implementation or our <Link to="/workflow-automation-software" className="text-[#D4AF37] hover:text-white transition-colors">workflow automation software</Link> capabilities to unify operations end to end.
+              Many clients pair this foundation with our <Link to="/erp-software" className="text-[#D4AF37] hover:text-white transition-colors">ERP software</Link> implementation or our <Link to="/ai-automation-software" className="text-[#D4AF37] hover:text-white transition-colors">AI automation software</Link> capabilities to unify operations end to end.
             </p>
           </motion.div>
 

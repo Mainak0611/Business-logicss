@@ -77,7 +77,7 @@ export default function BusinessProcessAutomationPage() {
       <Helmet>
         <title>Business Process Automation | BusinessLogics</title>
         <meta name="description" content="Business process automation services to streamline approvals, reduce errors, and scale operations. Build automated workflows with BusinessLogics." />
-        <meta name="keywords" content="business process automation, process automation software, workflow automation, BPA solutions" />
+        <meta name="keywords" content="business process automation, process automation software, AI automation, BPA solutions" />
         <link rel="canonical" href="https://businesslogics.in/business-process-automation" />
         <meta property="og:title" content="Business Process Automation | BusinessLogics" />
         <meta property="og:description" content="Transform manual operations into intelligent, governed, and scalable automated processes." />
